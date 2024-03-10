@@ -1,6 +1,7 @@
 import csv
 import time
 import pandas as pd
+
 class Node:
     def __init__(self, data):
         self.data = data
@@ -35,6 +36,7 @@ class LinkedList:
             current = current.next
             if current == self.head:
                 break
+        return cumulative_total
 
 # CSV dosyasını okuyarak verileri bir liste içine aktar
 def read_csv(file_path):
@@ -57,28 +59,22 @@ def main():
     # Bağlı listeyi dairesel hale getir
     linked_list.make_circular()
 
-    # Kümülatif toplamları hesapla
-    linked_list.calculate_cumulative_totals()
-
-    # Kümülatif toplamları yazdır
-    current = linked_list.head
-    while current:
-        print(current.cumulative_total)
-        current = current.next
-        if current == linked_list.head:
-            break
+    # Kümülatif toplamları hesapla ve yazdır
+    cumulative_total = linked_list.calculate_cumulative_totals()
+    print("Kümülatif Toplam:", cumulative_total)
 
 if __name__ == "__main__":
-    main()
+    # Sıralama süresini ölç
     start_time = time.time()
     df = pd.read_csv(r"C:\Users\livev\OneDrive\Masaüstü\orginaldata.csv")
-
     data = df.values.tolist()
+    elapsed_time = time.time() - start_time
+    print("Sıralama süresi:", elapsed_time, "saniye")
 
+    # Bağlı liste oluşturma süresini ölç
+    start_time = time.time()
     linked_list = LinkedList()
-
     for row in data:
         linked_list.append(Node(row))
-    end_time = time.time()
-    elapsed_time = end_time - start_time
-    print("Geçen zaman:", elapsed_time, "saniye")
+    elapsed_time = time.time() - start_time
+    print("Bağlı Liste Oluşturma süresi:", elapsed_time, "saniye")
