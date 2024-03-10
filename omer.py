@@ -1,5 +1,6 @@
 import csv
-
+import time
+import pandas as pd
 class Node:
     def __init__(self, data):
         self.data = data
@@ -69,3 +70,15 @@ def main():
 
 if __name__ == "__main__":
     main()
+    start_time = time.time()
+    df = pd.read_csv(r"C:\Users\livev\OneDrive\Masaüstü\orginaldata.csv")
+
+    data = df.values.tolist()
+
+    linked_list = LinkedList()
+
+    for row in data:
+        linked_list.append(Node(row))
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+    print("Geçen zaman:", elapsed_time, "saniye")

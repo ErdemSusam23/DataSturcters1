@@ -127,7 +127,7 @@ class Node:
         self.prev = None
         
 start_time = time.time()
-df = pd.read_csv(r'C:\Users\ersus\OneDrive\Masaüstü\Python\DataStructuresAndAlgorithms\orginaldata.csv')
+df = pd.read_csv(r"C:\Users\livev\OneDrive\Masaüstü\orginaldata.csv")
 
 
 data = df.values.tolist()
