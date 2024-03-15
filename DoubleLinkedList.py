@@ -143,8 +143,9 @@ print("Kümülatif Toplam Linked List:", cumulative_total)
 # Step 2: originaldata.csv dosyasındaki verileri sıralayalım
 sorted_data = sorted([node.data for node in linked_list])
 
+
 # Step 3: inserteddata.csv dosyasından alınan yeni veriyi uygun yere ekleyelim
-new_data = pd.read_csv("inserteddata.csv")
+new_data = pd.read_csv("data/inserteddata.csv")
 new_value = float(new_data.iloc[0, 0])
 
 for i, value in enumerate(sorted_data):
@@ -155,7 +156,7 @@ else:
     sorted_data.append(new_value)
 
 # Step 4: deleteindex.csv dosyasındaki indeks numarasına sahip veriyi listeden çıkaralım
-delete_index_data = pd.read_csv("deleteindex.csv")
+delete_index_data = pd.read_csv("data/deleteindex.csv")
 delete_index = int(delete_index_data.iloc[0, 0])
 del sorted_data[delete_index]
 
