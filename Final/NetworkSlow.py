@@ -73,7 +73,6 @@ def main():
             server_jobs[selected_server] += 1  # Increment job count for the server
         output_row = [i + 1, next_customer, arrival] + server_times
         output_data.append(output_row)
-    time.sleep(0.2)
     with open('Queue.csv', mode='w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(['customer(i)', 'customer(i+1)', 'Arrival', 'server1', 'server2', 'server3', 'server4'])
