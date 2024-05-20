@@ -250,5 +250,6 @@ def main():
 
 if __name__ == "__main__":
     start_time = time.time()  # Başlangıç zamanını kaydet
-
     main()
+    end = time.time()
+    print(str(start_time - end))

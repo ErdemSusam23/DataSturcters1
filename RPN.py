@@ -1,4 +1,5 @@
 import csv
+import time
 from pathlib import Path
 import math
 import ast
@@ -159,4 +160,7 @@ def main():
     print("Conversion complete. Results written to result_algebraic.csv")
 
 if __name__ == "__main__":
+    start = time.time()
     main()
+    end = time.time()
+    print(str(end - start))
